@@ -124,5 +124,8 @@
       }
     }
   },
-  "defaultProject": "authAngular"
+  "defaultProject": "authAngular",
+  "cli": {
+    "analytics": "794f1ad4-ccba-4a96-adbb-e272b29dabf8"
+  }
 }
