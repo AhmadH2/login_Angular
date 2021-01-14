@@ -14,7 +14,7 @@
 </div>
 <p>{{errMessage}}</p> -->
 
-<form (ngSubmit)='onSubmit()' #loginForm="ngForm">
+<!-- <form (ngSubmit)='onSubmit()' #loginForm="ngForm">
     <h2>Log in</h2>
     <div class="fomr-group">
         <label for="">User Name</label>
@@ -33,5 +33,21 @@
         </div>
     </div>
     <button [disabled]='!loginForm.form.valid' type="submit" class="btn btn-primary">log in</button>
+</form>
+<p>{{errMessage}}</p> -->
+
+
+<form (ngSubmit)="onSubmit()" [formGroup]='loginForm'>
+
+    <div class="form-group">
+        <label>User name</label>
+        <input class="form-control" type="text" formControlName='username' [(ngModel)]='user.username' name="username">
+    </div>
+    <div class="form-gorup">
+        <label>Password</label>
+        <input class="form-control" type="password" formControlName='password' [(ngModel)]='user.password'
+            name="password">
+    </div>
+    <button [disabled]='!loginForm.valid' type="submit" class="btn btn-primary">log in</button>
 </form>
 <p>{{errMessage}}</p>
