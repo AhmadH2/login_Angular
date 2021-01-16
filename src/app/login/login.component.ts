@@ -13,21 +13,25 @@ export class LoginComponent implements OnInit {
 
   user: User = new User('', '');
   errMessage = '';
-
-  // loginForm = new FormGroup({
-  //   username: new FormControl(''),
-  //   password: new FormControl('')
+ 
+  // loginForm = this.fb.group({
+  //   username: ['', Validators.required],
+  //   password: ['', Validators.required]
   // });
-
-  loginForm = this.fb.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required]
-  });
-
+  
   constructor(private authService: AuthService, private router: Router, private fb: FormBuilder) { }
 
+  loginForm:any;
   ngOnInit(): void {
+    this.loginForm = new FormGroup({
+      username: new FormControl('', Validators.required),
+      password: new FormControl('', Validators.required)
+    });
+    
   }
+
+  get username() { return this.loginForm.get('username'); }
+  get password() { return this.loginForm.get('password'); }
 
   login() {
     console.log('hi form login')

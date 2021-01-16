@@ -42,6 +42,8 @@
     <div class="form-group">
         <label>User name</label>
         <input class="form-control" type="text" formControlName='username' [(ngModel)]='user.username' name="username">
+        <div *ngIf="username.touched && username.invalid" 
+        class="alert alert-danger">This field is required</div>
     </div>
     <div class="form-gorup">
         <label>Password</label>
@@ -51,3 +53,4 @@
     <button [disabled]='!loginForm.valid' type="submit" class="btn btn-primary">log in</button>
 </form>
 <p>{{errMessage}}</p>
+
